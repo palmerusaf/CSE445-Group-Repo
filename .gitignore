@@ -1,0 +1,7 @@
+.vs/CSE445Assignment3/FileContentIndex/
+NewsFocus/.vs
+packages/
+*.cache
+**/bin/
+**/Debug/
+.vs/CSE445Assignment3/v17

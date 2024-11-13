@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:65463/StockQuote.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/StockQuote" />
+  <xs:element name="Stockquote">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="symbol" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockquoteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StockquoteResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnnualStockReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="symbol" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnnualStockReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/StockQuote" minOccurs="0" name="AnnualStockReportResult" nillable="true" type="q1:AnnualStockData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

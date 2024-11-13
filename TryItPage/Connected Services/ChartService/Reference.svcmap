@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="41df095f-4eb2-4526-ad3e-19f2e670cc50" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58754/Charts.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Charts.xsd" MetadataType="Schema" ID="f6a82fd2-753f-4031-829f-f427cefcf005" SourceId="1" SourceUrl="http://localhost:58754/Charts.svc?xsd=xsd2" />
+    <MetadataFile FileName="Charts1.xsd" MetadataType="Schema" ID="6fbef828-a53c-4813-b735-de908aa3cd05" SourceId="1" SourceUrl="http://localhost:58754/Charts.svc?xsd=xsd1" />
+    <MetadataFile FileName="Charts2.xsd" MetadataType="Schema" ID="f39ccd13-437f-4e84-8891-745a5210ead0" SourceId="1" SourceUrl="http://localhost:58754/Charts.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="a688a3dd-e8c5-43a4-9438-6cb417627bff" SourceId="1" SourceUrl="http://localhost:58754/Charts.svc?wsdl" />
+    <MetadataFile FileName="Charts.disco" MetadataType="Disco" ID="794ae3f4-daa2-4897-bfd7-a64e934218b1" SourceId="1" SourceUrl="http://localhost:58754/Charts.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

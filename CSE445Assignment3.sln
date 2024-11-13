@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryItPage", "TryItPage\TryItPage.csproj", "{43BBCF1C-A407-487F-9E4A-BBE628916A8F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{050A5AF5-B51D-4995-9C62-43F330E4584A} = {050A5AF5-B51D-4995-9C62-43F330E4584A}
+		{0BEB2357-0EF2-42DD-A4B0-62E29DAD3F5F} = {0BEB2357-0EF2-42DD-A4B0-62E29DAD3F5F}
+		{495BA505-79BF-45D4-A422-13AEEB72B29F} = {495BA505-79BF-45D4-A422-13AEEB72B29F}
+		{BA990C84-81AC-4C5B-BFE2-D9B9D80105F5} = {BA990C84-81AC-4C5B-BFE2-D9B9D80105F5}
+		{F6CC2374-874E-4B08-857E-4BD396FC862C} = {F6CC2374-874E-4B08-857E-4BD396FC862C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockQuote", "StockQuote\StockQuote.csproj", "{050A5AF5-B51D-4995-9C62-43F330E4584A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsFocus", "NewsFocus\NewsFocus.csproj", "{F6CC2374-874E-4B08-857E-4BD396FC862C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charts", "Charts\Charts.csproj", "{0BEB2357-0EF2-42DD-A4B0-62E29DAD3F5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordHasher", "PasswordHasher\PasswordHasher.csproj", "{BA990C84-81AC-4C5B-BFE2-D9B9D80105F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyExchangeService", "CurrencyExchange\CurrencyExchangeService.csproj", "{495BA505-79BF-45D4-A422-13AEEB72B29F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43BBCF1C-A407-487F-9E4A-BBE628916A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43BBCF1C-A407-487F-9E4A-BBE628916A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43BBCF1C-A407-487F-9E4A-BBE628916A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43BBCF1C-A407-487F-9E4A-BBE628916A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{050A5AF5-B51D-4995-9C62-43F330E4584A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{050A5AF5-B51D-4995-9C62-43F330E4584A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{050A5AF5-B51D-4995-9C62-43F330E4584A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{050A5AF5-B51D-4995-9C62-43F330E4584A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6CC2374-874E-4B08-857E-4BD396FC862C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6CC2374-874E-4B08-857E-4BD396FC862C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6CC2374-874E-4B08-857E-4BD396FC862C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6CC2374-874E-4B08-857E-4BD396FC862C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BEB2357-0EF2-42DD-A4B0-62E29DAD3F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BEB2357-0EF2-42DD-A4B0-62E29DAD3F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BEB2357-0EF2-42DD-A4B0-62E29DAD3F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BEB2357-0EF2-42DD-A4B0-62E29DAD3F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA990C84-81AC-4C5B-BFE2-D9B9D80105F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA990C84-81AC-4C5B-BFE2-D9B9D80105F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA990C84-81AC-4C5B-BFE2-D9B9D80105F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA990C84-81AC-4C5B-BFE2-D9B9D80105F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495BA505-79BF-45D4-A422-13AEEB72B29F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495BA505-79BF-45D4-A422-13AEEB72B29F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495BA505-79BF-45D4-A422-13AEEB72B29F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495BA505-79BF-45D4-A422-13AEEB72B29F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4CE072C-77D1-4CC7-9339-40C9AE21DCFC}
+	EndGlobalSection
+EndGlobal
