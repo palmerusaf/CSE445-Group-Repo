@@ -20,8 +20,8 @@ namespace web_client
         protected void Members_Authenticate(object sender, AuthenticateEventArgs e)
         {
             // Temporary hardcoded credentials
-            string validUsername = "admin";
-            string validPassword = "123";
+            string validUsername = "TA";
+            string validPassword = "Cse445!";
 
             // Check if the entered credentials match the hardcoded ones
             if (MembersLogin.UserName == validUsername && MembersLogin.Password == validPassword)
