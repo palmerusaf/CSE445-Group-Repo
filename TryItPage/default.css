@@ -17,3 +17,7 @@ form > input{
     padding-top:8px;
     padding-bottom:8px;
 }
+
+    form > p {
+        max-width: 31rem;
+    }
