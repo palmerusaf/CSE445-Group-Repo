@@ -124,6 +124,7 @@
     </None>
     <Content Include="default.aspx" />
     <Content Include="default.css" />
+    <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="Members.aspx" />
     <Content Include="Web.config" />
@@ -155,6 +156,9 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
