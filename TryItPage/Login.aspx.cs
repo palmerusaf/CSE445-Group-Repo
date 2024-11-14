@@ -11,7 +11,10 @@ namespace web_client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HttpCookie loginCookie = Request.Cookies["login"];
+            if (loginCookie != null) { 
+                MembersLogin.UserName=loginCookie["Username"];
+            }
         }
 
         protected void Members_Authenticate(object sender, AuthenticateEventArgs e)
@@ -25,6 +28,12 @@ namespace web_client
             {
                 // Set authentication successful
                 e.Authenticated = true;
+
+                // store the user name
+                HttpCookie loginCookie = new HttpCookie("login");
+                loginCookie["Username"] = MembersLogin.UserName;
+                loginCookie.Expires = DateTime.Now.AddMonths(6);
+                Response.Cookies.Add(loginCookie);
             }
             else
             {
