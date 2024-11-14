@@ -5,3 +5,15 @@ packages/
 **/bin/
 **/Debug/
 .vs/CSE445Assignment3/v17
+**/.vs/**
+/.vs/Assignment4-CSE445/v17/DocumentLayout.json
+/.vs/CSE-445-Assignment-3-main/v17/DocumentLayout.json
+/Charts/.vs/Charts.csproj.dtbcache.json
+/CurrencyExchange/.vs/CurrencyExchange.csproj.dtbcache.json
+/CurrencyExchange/.vs/CurrencyExchangeService.csproj.dtbcache.json
+/PasswordHasher/.vs/PasswordHasher.csproj.dtbcache.json
+/StockQuote/.vs/StockQuote.csproj.dtbcache.json
+/TryItPage/.vs/WebClient.csproj.dtbcache.json
+/TryItPage/.vs/TryItPage.csproj.dtbcache.json
+/TryItPage/.vs/TryItPage.csproj.dtbcache.json
+/TryItPage/.vs/WebClient.csproj.dtbcache.json
