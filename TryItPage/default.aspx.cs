@@ -173,6 +173,28 @@ namespace web_client
                 lblVerificationResult.Text = "Please fill in all fields for verification.";
             }
         }
-
+        protected void CookiesStoreButtonClick(object sender, EventArgs e) {
+            if (CookiesUserNameInput.Text == "" || CookiesPasswordInput.Text == "")
+            {
+                CookiesOutput.Text = "Fields can't be empty.";
+                CookiesOutput.Style.Add(HtmlTextWriterStyle.Color, "red");
+                return;
+            }
+            CookiesOutput.Style.Add(HtmlTextWriterStyle.Color, "black");
+            HttpCookie cook = new HttpCookie("login");
+            cook["Username"]=CookiesUserNameInput.Text;
+            cook["Password"]=CookiesPasswordInput.Text;
+            cook.Expires = DateTime.Now.AddMonths(6);
+            Response.Cookies.Add(cook);
+            CookiesOutput.Text = "Cookies stored.";
+            CookiesUserNameInput.Text = "";
+            CookiesPasswordInput.Text = "";
+        }
+        protected void CookiesGetButtonClick(object sender, EventArgs e) {
+            HttpCookie cook = Request.Cookies["login"];
+            CookiesUserNameInput.Text=cook["Username"];
+            CookiesPasswordInput.Text=cook["Password"];
+            CookiesOutput.Text = "Cookies retrieved.";
+        }
     }
 }

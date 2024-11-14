@@ -116,7 +116,7 @@
         <asp:Button ID="CookiesStoreButton" runat="server" Text="Store Cookies" OnClick="CookiesStoreButtonClick" /><br /><br />
         <asp:Button ID="CookiesGetButton" runat="server" Text="Get Cookies" OnClick="CookiesGetButtonClick" /><br /><br />
     
-        <asp:Label runat="server" ID="CookiesExpireOutput" Text="" />
+        <asp:Label runat="server" ID="CookiesOutput" Text="" />
     </form>
 </body>
 </html>
