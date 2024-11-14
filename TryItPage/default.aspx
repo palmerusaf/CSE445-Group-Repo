@@ -105,6 +105,18 @@
         <asp:Button ID="btnVerifyPassword" runat="server" Text="Verify" OnClick="btnVerifyPassword_Click" /><br /><br />
     
         <asp:Label ID="lblVerificationResult" runat="server" Text="" />
+
+        <h2>Cookies Test</h2>
+    
+        <asp:Label runat="server" Text="Enter Username: " />
+        <asp:TextBox ID="CookiesUserNameInput" runat="server" EnableViewState="true"/><br /><br />
+    
+        <asp:Label runat="server" Text="Enter Username: " />
+        <asp:TextBox ID="CookiesPasswordInput" runat="server" EnableViewState="true"/><br /><br />
+        <asp:Button ID="CookiesStoreButton" runat="server" Text="Store Cookies" OnClick="CookiesStoreButtonClick" /><br /><br />
+        <asp:Button ID="CookiesGetButton" runat="server" Text="Get Cookies" OnClick="CookiesGetButtonClick" /><br /><br />
+    
+        <asp:Label runat="server" ID="CookiesExpireOutput" Text="" />
     </form>
 </body>
 </html>
