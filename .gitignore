@@ -17,3 +17,10 @@ packages/
 /TryItPage/.vs/TryItPage.csproj.dtbcache.json
 /TryItPage/.vs/TryItPage.csproj.dtbcache.json
 /TryItPage/.vs/WebClient.csproj.dtbcache.json
+/CurrencyExchange/obj/Release
+/CurrencyExchangeRates/obj/Release
+/NewsFocus/obj/Release
+/PasswordHasher/obj/Release
+/StockQuote/obj/Release
+/TryItPage/obj/Release/TempPE
+/.vs/slnx.sqlite
