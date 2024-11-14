@@ -6,10 +6,10 @@ namespace web_client
     public class Global : System.Web.HttpApplication
     {
         private static Int32 visitorCount;
-        private static const var filePath = Server.MapPath("./VisitorCount.txt")
         protected void Application_Start(object sender, EventArgs e)
         {
 
+            string filePath = Server.MapPath("./VisitorCount.txt");
             if (File.Exists(filePath))
             {
                 StreamReader sr = new StreamReader(filePath);
@@ -26,8 +26,8 @@ namespace web_client
             }
             else
             {
-                    visitorCount = 0;
-                    Application["VisitorCount"] = visitorCount;
+                visitorCount = 0;
+                Application["VisitorCount"] = visitorCount;
             }
         }
 
@@ -59,7 +59,8 @@ namespace web_client
 
         protected void Application_End(object sender, EventArgs e)
         {
-            StreamWriter sw = new StreamWriter("./VisitorCount", false);
+            string filePath = Server.MapPath("./VisitorCount.txt");
+            StreamWriter sw = new StreamWriter(filePath, false);
             try
             {
                 sw.Write(visitorCount);
