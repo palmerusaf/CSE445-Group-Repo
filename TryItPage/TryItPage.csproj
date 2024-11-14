@@ -126,7 +126,6 @@
     <Content Include="default.css" />
     <Content Include="Login.aspx" />
     <Content Include="Members.aspx" />
-    <Content Include="test.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
