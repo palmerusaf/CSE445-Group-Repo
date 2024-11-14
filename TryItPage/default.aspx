@@ -9,8 +9,11 @@
 </head>
 <body>
     <form runat="server">
-        <h1>Try It Page</h1>
+        <h1>Public Try It Page</h1>
+        <p>This application offers serveral financial services to assist members in making trades.</p>
+        <p>Please click the link below to try out our demo.</p>
         <a href="Members.aspx">Go to Members Page</a>
+        <p>Furthermore, you can test individual services on this page.</p>
         <h2>Stock Quote</h2>
         <p>This service will fetch opening stock quotes.</p>
         <label>ServiceURL:</label>
