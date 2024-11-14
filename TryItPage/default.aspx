@@ -109,6 +109,7 @@
     
         <asp:Label ID="lblVerificationResult" runat="server" Text="" />
 
+        <!-- Cookies Test -->
         <h2>Cookies Test</h2>
     
         <asp:Label runat="server" Text="Enter Username: " />
@@ -120,6 +121,12 @@
         <asp:Button ID="CookiesGetButton" runat="server" Text="Get Cookies" OnClick="CookiesGetButtonClick" /><br /><br />
     
         <asp:Label runat="server" ID="CookiesOutput" Text="" />
+
+        <!-- Global Events Test -->
+        <h2>Global Events Test</h2>
+    
+        <asp:Label runat="server" Text="Total number of visitors: " />
+        <asp:Label runat="server" Text="" ID="VisitorCountOutput" />
     </form>
 </body>
 </html>

@@ -8,27 +8,7 @@ namespace web_client
         private static Int32 visitorCount;
         protected void Application_Start(object sender, EventArgs e)
         {
-
-            string filePath = Server.MapPath("./VisitorCount.txt");
-            if (File.Exists(filePath))
-            {
-                StreamReader sr = new StreamReader(filePath);
-                try
-                {
-                    var contents = sr.ReadToEnd();
-                    visitorCount = int.Parse(contents);
-                    Application["VisitorCount"] = visitorCount;
-                }
-                finally
-                {
-                    sr.Close();
-                }
-            }
-            else
-            {
-                visitorCount = 0;
-                Application["VisitorCount"] = visitorCount;
-            }
+            visitorCount = 0;
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -59,16 +39,6 @@ namespace web_client
 
         protected void Application_End(object sender, EventArgs e)
         {
-            string filePath = Server.MapPath("./VisitorCount.txt");
-            StreamWriter sw = new StreamWriter(filePath, false);
-            try
-            {
-                sw.Write(visitorCount);
-            }
-            finally
-            {
-                sw.Close();
-            }
 
         }
     }

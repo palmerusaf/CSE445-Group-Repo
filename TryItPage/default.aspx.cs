@@ -142,6 +142,9 @@ namespace web_client
                 var factory = new ChannelFactory<IPasswordHasher>("BasicHttpBinding_IPasswordHasher");
                 client = factory.CreateChannel();
             }
+
+            Int32 visitorCount = (int)Application["VisitorCount"];
+            VisitorCountOutput.Text = visitorCount.ToString();
         }
 
         protected void btnGenerateSalt_Click(object sender, EventArgs e)
