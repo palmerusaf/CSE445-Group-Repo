@@ -99,7 +99,7 @@ namespace web_client
             NewsFocusOutput.DataBind();
 
             // prep our request
-            UriBuilder ub = new UriBuilder($"http://localhost:50159/NewsFocus.svc/NewsFocus?topics={NewsFocusInput.Text}");
+            UriBuilder ub = new UriBuilder($"http://webstrar26.fulton.asu.edu/page2/NewsFocus.svc/NewsFocusService?topics={NewsFocusInput.Text}");
 
             //establish connection
             HttpClient client = new HttpClient();
