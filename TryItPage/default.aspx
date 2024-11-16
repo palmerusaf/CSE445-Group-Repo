@@ -17,7 +17,7 @@
         <h2>Stock Quote</h2>
         <p>This service will fetch opening stock quotes.</p>
         <label>ServiceURL:</label>
-        <a href="http://localhost:65463/StockQuote.svc?wsdl">http://localhost:65463/StockQuote.svc?wsdl</a>
+        <a href="http://webstrar26.fulton.asu.edu/page4/StockQuote.svc?wsdl">http://webstrar26.fulton.asu.edu/page4/StockQuote.svc?wsdl</a>
         <label>Method Signature:</label>
         <code>string Stockquote(string symbol)</code>
         <label>
@@ -30,7 +30,7 @@
         <h2>News Focus</h2>
         <p>This service will fetch news urls based on specified topics.</p>
         <label>ServiceURL:</label>
-        <a href="http://localhost:50159/NewsFocus.svc/NewsFocus?topics=tech">http://localhost:50159/NewsFocus.svc/NewsFocus?topics=tech</a>
+        <a href="http://webstrar26.fulton.asu.edu/page2/NewsFocus.svc/NewsFocusService?topics=tech">http://webstrar26.fulton.asu.edu/page2/NewsFocus.svc/NewsFocusService?topics=tech</a>
         <label>Method Signature:</label>
         <code>string[] NewsFocus(string topics)</code>
         <label>
@@ -48,7 +48,7 @@
         <h2>Charts</h2>
         <p>This service will take in data and return an html string to render a chart.</p>
         <label>ServiceURL:</label>
-        <a href="http://localhost:58754/Charts.svc?wsdl">http://localhost:58754/Charts.svc?wsdl</a>
+        <a href="http://webstrar26.fulton.asu.edu/page0/Charts.svc?wsdl">http://webstrar26.fulton.asu.edu/page0/Charts.svc?wsdl</a>
         <label>Method Signature:</label>
         <code>string Chart(string chartLabel, string[] dataLabels, string[] dataValues)</code>
         <label>
@@ -69,7 +69,7 @@
         <h2>Annual Stock Report</h2>
         <p>This service will take a stock symbol and generates an annual stock report by returning an object that contains the annual return and a 12 month list of closing prices and month labels.</p>
         <label>ServiceURL:</label>
-        <a href="http://localhost:65463/StockQuote.svc?wsdl">http://localhost:65463/StockQuote.svc?wsdl</a>
+        <a href="http://webstrar26.fulton.asu.edu/page4/StockQuote.svc?wsdl">http://webstrar26.fulton.asu.edu/page4/StockQuote.svc?wsdl</a>
         <label>Method Signature:</label>
         <code>AnnualStockData AnnualStockReport(string symbol)</code>
         <label>

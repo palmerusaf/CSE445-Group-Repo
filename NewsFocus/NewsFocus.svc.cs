@@ -10,10 +10,10 @@ using Newtonsoft.Json;
 
 namespace NewsFocus
 {
-    public class Service1 : INewsFocus
+    public class NewsFocus : INewsFocus
     {
         // Find news about topics and return news urls
-        public string[] NewsFocus(string topics)
+        public string[] NewsFocusService(string topics)
         {
             //replace sperator to search of topic1 or topicN
             var parsedTopics = topics.Replace(',', '|');

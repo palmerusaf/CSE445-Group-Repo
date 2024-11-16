@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="NewsFocus.Service1" CodeBehind="NewsFocus.svc.cs" Factory="System.ServiceModel.Activation.WebServiceHostFactory" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="NewsFocus.NewsFocus" CodeBehind="NewsFocus.svc.cs" Factory="System.ServiceModel.Activation.WebServiceHostFactory" %>

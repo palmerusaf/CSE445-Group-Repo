@@ -16,7 +16,7 @@ namespace NewsFocus
 
         [WebGet]
         [OperationContract]
-        string[] NewsFocus(string topics);
+        string[] NewsFocusService(string topics);
     }
 
 }

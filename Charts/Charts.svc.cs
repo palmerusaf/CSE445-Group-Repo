@@ -9,7 +9,7 @@ using System.Web.UI.HtmlControls;
 
 namespace Charts
 {
-    public class Service1 : ICharts
+    public class Charts : ICharts
     {
         public string Chart(string chartLabel, string[] dataLabels, string[] dataValues)
         {
