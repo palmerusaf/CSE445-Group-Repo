@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="Charts.Charts" CodeBehind="Charts.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Charts.ChartsClass" CodeBehind="Charts.svc.cs" %>
