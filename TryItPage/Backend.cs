@@ -10,11 +10,11 @@ namespace BackendNameSpace
         public bool Success;
         public string ErrorMsg;
     }
-    public class ContentResponse<T>
+    public class ContentResponse
     {
         public bool Success;
         public string ErrorMsg;
-        public T Content;
+        public List<string> Content;
     }
     public static class Backend
     {
@@ -41,12 +41,12 @@ namespace BackendNameSpace
         }
 
         // if this get too complicated for the backend maybe we can shrink the problem down to only getting and setting a single stock symbol for the list and make the watch list just a watch symbol
-        public static ContentResponse<string[]> GetWatchList(string username)
+        public static ContentResponse GetWatchList(string username)
         {
             // assume the username exists because watch list functions get called at the member page
-            ContentResponse<string[]> res = new ContentResponse<string[]>();
+            ContentResponse res = new ContentResponse();
             res.Success = true;
-            res.Content =new string[]{ "lmt","ibm"};
+            res.Content =new List<string>{ "lmt","ibm"};
             // res.Success = false;
             // res.ErrorMsg=""
             return res;
