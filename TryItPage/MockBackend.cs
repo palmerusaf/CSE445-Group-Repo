@@ -31,6 +31,8 @@ namespace MockBackendNameSpace
 
         public static SimpleResponse CreateUser(string username, string password)
         {
+            // lets require usernames be unique so we can also use them as username ids
+            // this means we'll have to bump the db to make sure this is true
             SimpleResponse res = new SimpleResponse();
             res.Success = true;
             // res.Success = false;
