@@ -1,0 +1,31 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "StockQuote\\StockQuote.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "NewsFocus\\NewsFocus.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Charts\\Charts.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "PasswordHasher\\PasswordHasher.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "CurrencyExchange\\CurrencyExchangeService.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "TryItPage\\TryItPage.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -122,7 +122,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="default.aspx" />
+    <Content Include="TryItPage.aspx" />
     <Content Include="default.css" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
@@ -152,12 +152,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
+    <Compile Include="TryItPage.aspx.cs">
+      <DependentUpon>TryItPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
+    <Compile Include="TryItPage.aspx.designer.cs">
+      <DependentUpon>TryItPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
