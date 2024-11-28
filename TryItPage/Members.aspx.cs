@@ -19,8 +19,8 @@ namespace web_client
                 return;
             }
             // get the watch list and bind it to the ui
-            // TODO: add real username
-            username = "foo";
+            HttpCookie loginCookie = Request.Cookies["login"];
+            username = loginCookie["Username"];
             UpdateWatchList();
         }
 
