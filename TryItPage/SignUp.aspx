@@ -36,7 +36,7 @@
     DestinationPageUrl="Members.aspx" 
     OnAuthenticate="Members_Authenticate" >
           <LayoutTemplate>
-            <div class="flex justify-between">
+            <div class="flex gap-3">
               <asp:Label
                 class="font-bold"
                 ID="UserNameLabel"
@@ -50,7 +50,7 @@
                 runat="server"
               ></asp:TextBox>
             </div>
-            <div class="flex justify-between">
+            <div class="flex gap-4">
               <asp:Label
                 class="font-bold mt-2"
                 ID="PasswordLabel"
