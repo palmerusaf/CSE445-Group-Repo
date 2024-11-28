@@ -21,7 +21,12 @@ namespace web_client
             // get the watch list and bind it to the ui
             // TODO: add real username
             username = "foo";
-            var watchListData=Backend.GetWatchList(username);
+            UpdateList();
+        }
+
+        private void UpdateList()
+        {
+            var watchListData = Backend.GetWatchList(username);
             WatchList.DataSource = watchListData.Content;
             WatchList.DataBind();
         }
@@ -33,12 +38,21 @@ namespace web_client
             if (!res.Success)
             {
                 InputBox.Text = res.ErrorMsg;
+                return;
             }
+            UpdateList();
         }
 
         protected void AddClick(object sender, EventArgs e)
         {
-            Response.Write("add");
+            var symbol = InputBox.Text;
+            var res=Backend.AddSymbol(username, symbol);
+            if (!res.Success)
+            {
+                InputBox.Text = res.ErrorMsg;
+                return;
+            }
+            UpdateList();
         }
 
         protected void ReportClick(object sender, EventArgs e)
