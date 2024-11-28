@@ -3,24 +3,111 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Exchange Rate Service Test</title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <h2>Currency Exchange Rate Checker</h2>
-            
-            <asp:Label ID="Label1" runat="server" Text="Currency 1:"></asp:Label>
-            <asp:TextBox ID="Currency1TextBox" runat="server" Width="100px"></asp:TextBox>
-            
-            <asp:Label ID="Label2" runat="server" Text="Currency 2:"></asp:Label>
-            <asp:TextBox ID="Currency2TextBox" runat="server" Width="100px"></asp:TextBox>
-            
-            <asp:Button ID="GetExchangeRateButton" runat="server" Text="Get Exchange Rate" OnClick="GetExchangeRateButton_Click" />
-            
-            <asp:Label ID="ResultLabel" runat="server" Text="" EnableViewState="false"></asp:Label>
+  <head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>QuoteWatch - Sign Up</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=query_stats"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex justify-between py-7 px-10 w-full bg-blue-500 lg:px-24">
+      <div class="flex items-center text-xl font-semibold text-center">
+        <span class="material-symbols-outlined"> query_stats </span>
+        QuoteWatch
+      </div>
+      <ul class="flex flex-col gap-2 md:flex-row">
+        <li class="underline"><a href="default.html">Home</a></li>
+        <li class="underline"><a href="SignUp.html">Sign Up</a></li>
+        <li class="underline"><a href="Login.html">Login</a></li>
+        <li class="text-lg font-bold">Members</li>
+        <li class="underline"><a href="">Staff</a></li>
+      </ul>
+    </div>
+    <div class="grid grid-cols-5 grid-rows-6 gap-3 p-12 h-full">
+      <div
+        class="flex col-span-4 justify-center bg-gray-200 rounded-md shadow-lg item-center"
+      >
+        <div class="my-auto text-3xl font-bold">Members Page</div>
+      </div>
+      <div class="col-start-5 row-span-6 bg-gray-200 rounded-md shadow-lg">
+        <div class="pt-6 w-full text-xl font-bold text-center">Watch List</div>
+        <p class="pb-4 text-center">(click to insert)</p>
+        <div
+          class="flex overflow-hidden flex-col gap-4 px-4 text-nowrap text-ellipsis"
+        >
+          <div
+            class="p-2 font-bold text-center text-white bg-gray-500 rounded-xl duration-200 hover:scale-110"
+          >
+            IBM
+          </div>
+          <div
+            class="p-2 font-bold text-center text-white bg-gray-500 rounded-xl duration-200 hover:scale-110"
+          >
+            TSLA
+          </div>
         </div>
-    </form>
-</body>
+      </div>
+      <div
+        class="row-span-5 row-start-2 bg-gray-200 rounded-md shadow-lg text-ellipsis"
+      >
+        <div class="py-4 w-full text-xl font-bold text-center">News Links</div>
+        <div class="overflow-hidden flex-col px-4 text-nowrap text-ellipsis">
+          <a class="underline" href=""
+            >https://edition.cnn.com/2024/11/27/asia/johnny-somali-prison-south-korea-hnk/index.html<br
+          /></a>
+          <a class="underline" href=""
+            >https://edition.cnn.com/2024/11/27/asia/johnny-somali-prison-south-korea-hnk/index.html<br
+          /></a>
+        </div>
+      </div>
+      <div
+        class="col-span-3 col-start-2 row-span-4 row-start-3 bg-gray-200 rounded-md shadow-lg"
+      >
+        <div class="py-4 w-full text-xl font-bold text-center">Chart</div>
+        <div class="flex justify-center items-center w-full">
+          <img
+            src="https://www.jaspersoft.com/content/dam/jaspersoft/images/graphics/infographics/line-chart-example.svg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="flex col-span-3 col-start-2 row-start-2 items-center bg-gray-200 rounded-md shadow-lg"
+      >
+        <div class="grid grid-cols-5 grid-rows-2 gap-4 p-4 w-full">
+          <div class="col-span-5 text-lg font-bold text-center">
+            Current Price:
+            <div class="inline">$123</div>
+          </div>
+          <div
+            class="col-start-1 row-start-2 p-2 text-lg font-bold text-center rounded-xl"
+          >
+            Symbol:
+          </div>
+          <input
+            class="col-start-2 row-start-2 p-2 font-bold text-center rounded-xl duration-300 hover:scale-105"
+          />
+          <div
+            class="col-start-3 row-start-2 p-2 font-bold text-center text-white bg-blue-500 rounded-xl duration-300 hover:scale-105"
+          >
+            Run Report
+          </div>
+          <div
+            class="col-start-4 row-start-2 p-2 font-bold text-center text-white bg-green-500 rounded-xl duration-300 hover:scale-105"
+          >
+            Add
+          </div>
+          <div
+            class="col-start-5 row-start-2 p-2 font-bold text-center text-white bg-red-500 rounded-xl duration-300 hover:scale-105"
+          >
+            Remove
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
