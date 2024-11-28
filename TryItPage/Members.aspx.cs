@@ -18,9 +18,10 @@ namespace web_client
             {
                 return;
             }
-            // get the watch list and bind it to the ui
+            // get cookies for username
             HttpCookie loginCookie = Request.Cookies["login"];
             username = loginCookie["Username"];
+            // get the watch list and bind it to the ui
             UpdateWatchList();
         }
 
