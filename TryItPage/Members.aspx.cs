@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using web_client.CurrenyExchangeRate;
 using MockBackendNameSpace;
 using web_client.StockQuoteService;
+using System.Xml.Linq;
+using System.Net.Http;
 
 namespace web_client
 {
@@ -14,7 +16,7 @@ namespace web_client
     {
         private string username;
         // use mock data to save on api calls during testing
-        private readonly bool MOCK_DATA = false;
+        private readonly bool MOCK_DATA = true;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack)
@@ -44,6 +46,26 @@ namespace web_client
                 NewsLinks.DataBind();
                     return;
             }
+
+            // prep our request
+            UriBuilder ub = new UriBuilder($"http://webstrar26.fulton.asu.edu/page2/NewsFocus.svc/NewsFocusService?topics={symbol}");
+
+            //establish connection
+            HttpClient client = new HttpClient();
+            var res = client.GetAsync(ub.Uri).Result;
+
+            // parse xml into a list of url strings
+            var xmlRaw = res.Content.ReadAsStringAsync().Result;
+            XDocument doc = XDocument.Parse(xmlRaw);
+            var urlsStrings = doc.Descendants().Select(x => x.Value).ToList();
+
+            // i can't figure out how to just target the string elements and descendants("string") isn't working
+            // so this hack removes the line where all elements are on the same line
+            urlsStrings.RemoveAt(0);
+
+            //update our output box
+            NewsLinks.DataSource = urlsStrings;
+            NewsLinks.DataBind();
         }
         private bool UpdateCurrentPrice(string symbol)
         {
