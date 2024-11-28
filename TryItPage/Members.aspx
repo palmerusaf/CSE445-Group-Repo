@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Members.aspx.cs" Inherits="web_client.Members" Async="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Members.aspx.cs" Inherits="web_client.Members"  Async="true" %>
 
 <!DOCTYPE html>
 
@@ -87,7 +87,9 @@
           >
             Symbol:
           </div>
-          <input
+          <asp:TextBox
+              runat="server"
+              ID="InputBox"
             class="col-start-2 row-start-2 p-2 font-bold text-center rounded-xl duration-300 hover:scale-105"
           />
           <asp:Button runat="server" OnClick="ReportClick"

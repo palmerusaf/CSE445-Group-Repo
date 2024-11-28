@@ -11,9 +11,12 @@ namespace web_client
 {
     public partial class Members : System.Web.UI.Page
     {
-        private readonly CurrencyExchangeClient serviceClient = new CurrencyExchangeClient();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Page.IsPostBack)
+            {
+                return;
+            }
             // get the watch list and bind it to the ui
             // TODO: add real username
             var watchListData=Backend.GetWatchList("foo");
@@ -38,7 +41,8 @@ namespace web_client
 
         protected void WatchListItemClick(object sender, EventArgs e)
         {
-
+            var clickedButton = (Button)sender;
+            InputBox.Text = clickedButton.Text;
         }
     }
 }
