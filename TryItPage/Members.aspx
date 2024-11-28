@@ -25,7 +25,7 @@
         <li class="underline"><a href="SignUp.aspx">Sign Up</a></li>
         <li class="underline"><a href="Login.aspx">Login</a></li>
         <li class="text-lg font-bold">Members</li>
-        <li class="underline"><a href="">Staff</a></li>
+        <li class="underline"><a href="Staff.aspx">Staff</a></li>
       </ul>
     </div>
     <div class="grid grid-cols-5 grid-rows-6 gap-3 p-12 h-full">

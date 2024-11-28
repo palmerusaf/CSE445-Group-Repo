@@ -1,14 +1,31 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TryItPage.aspx.cs" Inherits="web_client._default" MaintainScrollPositionOnPostBack="true"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Staff.aspx.cs" Inherits="web_client._default" MaintainScrollPositionOnPostBack="true"%>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Try It Page</title>
     <link rel="stylesheet" href="default.css" />
+   <title>QuoteWatch - Staff</title>
+   <link
+     rel="stylesheet"
+     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=query_stats"
+   />
 </head>
 <body>
     <form runat="server">
+    <div class="flex justify-between py-7 px-10 w-full bg-blue-500 lg:px-24">
+      <div class="flex items-center text-xl font-semibold text-center">
+        <span class="material-symbols-outlined"> query_stats </span>
+        QuoteWatch
+      </div>
+      <ul class="flex flex-col gap-2 md:flex-row">
+        <li class="underline"><a href="default.aspx">Home</a></li>
+        <li class="underline"><a href="SignUp.aspx">Sign Up</a></li>
+        <li class="underline"><a href="Login.aspx">Login</a></li>
+        <li class="underline"><a href="Members.aspx">Members</a></li>
+        <li class="text-lg font-bold">Staff</li>
+      </ul>
+    </div>
         <h1>Public Try It Page</h1>
         <p>This application offers serveral financial services to assist members in making trades.</p>
         <p>Please click the link below to try out our demo.</p>
