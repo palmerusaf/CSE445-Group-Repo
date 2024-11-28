@@ -40,16 +40,14 @@
         <div
           class="flex overflow-hidden flex-col gap-4 px-4 text-nowrap text-ellipsis"
         >
-          <div
-            class="p-2 font-bold text-center text-white bg-gray-500 rounded-xl duration-200 hover:scale-110"
-          >
-            IBM
-          </div>
-          <div
-            class="p-2 font-bold text-center text-white bg-gray-500 rounded-xl duration-200 hover:scale-110"
-          >
-            TSLA
-          </div>
+            <asp:Repeater ID="WatchList" runat="server">
+                <ItemTemplate>
+                  <asp:Button runat="server"
+                      OnClick="WatchListItemClick"
+                    class="p-2 font-bold text-center text-white bg-gray-500 rounded-xl duration-200 hover:scale-110"
+                    Text='<%# Container.DataItem %>' />
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
       </div>
       <div
