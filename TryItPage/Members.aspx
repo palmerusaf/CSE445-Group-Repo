@@ -14,6 +14,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
+      <form runat="server">
     <div class="flex justify-between py-7 px-10 w-full bg-blue-500 lg:px-24">
       <div class="flex items-center text-xl font-semibold text-center">
         <span class="material-symbols-outlined"> query_stats </span>
@@ -91,23 +92,19 @@
           <input
             class="col-start-2 row-start-2 p-2 font-bold text-center rounded-xl duration-300 hover:scale-105"
           />
-          <div
+          <asp:Button runat="server" OnClick="ReportClick"
             class="col-start-3 row-start-2 p-2 font-bold text-center text-white bg-blue-500 rounded-xl duration-300 hover:scale-105"
-          >
-            Run Report
-          </div>
-          <div
+          Text="Run Report"   
+          />
+          <asp:Button runat="server" OnClick="AddClick"
             class="col-start-4 row-start-2 p-2 font-bold text-center text-white bg-green-500 rounded-xl duration-300 hover:scale-105"
-          >
-            Add
-          </div>
-          <div
-            class="col-start-5 row-start-2 p-2 font-bold text-center text-white bg-red-500 rounded-xl duration-300 hover:scale-105"
-          >
-            Remove
-          </div>
+              Text="Add"
+          />
+          <asp:Button runat="server" OnClick="RemoveClick" 
+            class="col-start-5 row-start-2 p-2 font-bold text-center text-white bg-red-500 rounded-xl duration-300 hover:scale-105" Text="Remove"/> 
         </div>
       </div>
     </div>
+      </form>
   </body>
 </html>
