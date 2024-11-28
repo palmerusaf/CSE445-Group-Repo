@@ -21,16 +21,27 @@ namespace web_client
             // get the watch list and bind it to the ui
             // TODO: add real username
             username = "foo";
-            UpdateList();
+            UpdateWatchList();
         }
 
-        private void UpdateList()
+        private void UpdateWatchList()
         {
             var watchListData = Backend.GetWatchList(username);
             WatchList.DataSource = watchListData.Content;
             WatchList.DataBind();
         }
 
+        private void UpdateNewsLinks(string symbol)
+        {
+        }
+        private bool UpdateCurrentPrice(string symbol)
+        {
+            bool res = true;
+            return res;
+        }
+        private void UpdateChart(string symbol)
+        {
+        }
         protected void RemoveClick(object sender, EventArgs e)
         {
             var symbol = InputBox.Text;
@@ -40,7 +51,7 @@ namespace web_client
                 InputBox.Text = res.ErrorMsg;
                 return;
             }
-            UpdateList();
+            UpdateWatchList();
         }
 
         protected void AddClick(object sender, EventArgs e)
@@ -52,12 +63,25 @@ namespace web_client
                 InputBox.Text = res.ErrorMsg;
                 return;
             }
-            UpdateList();
+            UpdateWatchList();
         }
 
         protected void ReportClick(object sender, EventArgs e)
         {
-            Response.Write("report");
+            var symbol = InputBox.Text;
+            if (symbol == string.Empty)
+            {
+                InputBox.Text = "Field Empty";
+                return;
+            }
+            var success = UpdateCurrentPrice(symbol);
+            if (!success)
+            {
+                InputBox.Text = "Invalid symbol.";
+                return;
+            }
+            UpdateChart(symbol);
+            UpdateNewsLinks(symbol);
         }
 
         protected void WatchListItemClick(object sender, EventArgs e)
