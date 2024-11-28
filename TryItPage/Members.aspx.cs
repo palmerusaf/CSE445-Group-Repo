@@ -12,6 +12,8 @@ namespace web_client
     public partial class Members : System.Web.UI.Page
     {
         private string username;
+        // use mock data to save on api calls during testing
+        private readonly bool MOCK_DATA = true;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack)
@@ -34,34 +36,44 @@ namespace web_client
 
         private void UpdateNewsLinks(string symbol)
         {
-            // TODO: plug in news api
-            List<string> dataList = new List<string> { "google.com", "facebook.com" };
-            NewsLinks.DataSource = dataList;
-            NewsLinks.DataBind();
+            if (MOCK_DATA)
+            {
+                List<string> dataList = new List<string> { "google.com", "facebook.com" };
+                NewsLinks.DataSource = dataList;
+                NewsLinks.DataBind();
+                    return;
+            }
         }
         private bool UpdateCurrentPrice(string symbol)
         {
-            bool res = true;
-            string price = "1337";
-            if (res)
+            if (MOCK_DATA)
             {
-                CurrentPrice.Text = "$" + price.ToString();
+                bool res = true;
+                string price = "1337";
+                if (res)
+                {
+                    CurrentPrice.Text = "$" + price.ToString();
+                }
+                return res;
             }
-            return res;
         }
         private void UpdateChart(string symbol)
         {
+            if (MOCK_DATA)
+            {
+                // establish service connection
+                ChartService.ChartsClient service = new ChartService.ChartsClient();
+                //parse out input
+                // TODO: call api to get real data
+                var dataLabels = new string[] { "Label1", "Label2" };
+                var dataValues = new string[] { "10", "15" };
+                var label = "Annual Price Chart for " + symbol;
+                //call service and embed html string
+                Chart.Text = service.Chart(label, dataLabels, dataValues);
+                service.Close();
+                return;
+            }
 
-            // establish service connection
-            ChartService.ChartsClient service = new ChartService.ChartsClient();
-            //parse out input
-            // TODO: call api to get real data
-            var dataLabels = new string[] { "Label1", "Label2" };
-            var dataValues = new string[] { "10", "15" };
-            var label = "Annual Price Chart for " + symbol;
-            //call service and embed html string
-            Chart.Text = service.Chart(label, dataLabels, dataValues);
-            service.Close();
         }
         protected void RemoveClick(object sender, EventArgs e)
         {
