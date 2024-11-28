@@ -16,7 +16,7 @@ namespace web_client
     {
         private string username;
         // use mock data to save on api calls during testing
-        private readonly bool MOCK_DATA = true;
+        private readonly bool MOCK_DATA = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack)
@@ -106,7 +106,44 @@ namespace web_client
                 service.Close();
                 return;
             }
+            else
+            {
 
+                // establish service connection
+                ChartService.ChartsClient chartServ = new ChartService.ChartsClient();
+                //parse out input
+                string[] dataLabels=new string[] {};
+                string[] dataValues=new string[] {};
+
+            // establish service connection
+            StockQuoteService.StockQuoteClient stockServ = new StockQuoteClient();
+            try
+            {
+
+                // consume the service
+                var report = stockServ.AnnualStockReport(symbol);
+
+                    //convert to list to bind to frontend
+                    var label = $"Annual Percent Return: {report.annualReturn}%";
+                foreach (var month in report.monthlyClosings)
+                {
+                        dataLabels.Append(month.name.ToString());
+                        dataValues.Append(month.price.ToString());
+                }
+                //call service and embed html string
+                Chart.Text = chartServ.Chart(label, dataLabels, dataValues);
+            }
+            catch (Exception ex)
+            {
+                    Chart.Text = ex.Message;
+            }
+            finally
+            {
+                //close the connection
+                stockServ.Close();
+                chartServ.Close();
+            }
+            }
         }
         protected void RemoveClick(object sender, EventArgs e)
         {
