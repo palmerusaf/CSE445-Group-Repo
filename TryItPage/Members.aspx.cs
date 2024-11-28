@@ -11,6 +11,7 @@ namespace web_client
 {
     public partial class Members : System.Web.UI.Page
     {
+        private string username;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack)
@@ -19,14 +20,20 @@ namespace web_client
             }
             // get the watch list and bind it to the ui
             // TODO: add real username
-            var watchListData=Backend.GetWatchList("foo");
+            username = "foo";
+            var watchListData=Backend.GetWatchList(username);
             WatchList.DataSource = watchListData.Content;
             WatchList.DataBind();
         }
 
         protected void RemoveClick(object sender, EventArgs e)
         {
-            Response.Write("remove");
+            var symbol = InputBox.Text;
+            var res=Backend.RemoveSymbol(username, symbol);
+            if (!res.Success)
+            {
+                InputBox.Text = res.ErrorMsg;
+            }
         }
 
         protected void AddClick(object sender, EventArgs e)
