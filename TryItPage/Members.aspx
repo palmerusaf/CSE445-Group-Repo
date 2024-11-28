@@ -80,7 +80,7 @@
         <div class="grid grid-cols-5 grid-rows-2 gap-4 p-4 w-full">
           <div class="col-span-5 text-lg font-bold text-center">
             Current Price:
-            <div class="inline">$123</div>
+            <asp:Label runat="server" class="inline" ID="CurrentPrice" Text=""/>
           </div>
           <div
             class="col-start-1 row-start-2 p-2 text-lg font-bold text-center rounded-xl"

@@ -41,6 +41,11 @@ namespace web_client
         private bool UpdateCurrentPrice(string symbol)
         {
             bool res = true;
+            string price = "1337";
+            if (res)
+            {
+                CurrentPrice.Text = "$" + price.ToString();
+            }
             return res;
         }
         private void UpdateChart(string symbol)
