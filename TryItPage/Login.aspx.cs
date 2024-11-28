@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MockBackendNameSpace;
 
 namespace web_client
 {
@@ -23,8 +24,11 @@ namespace web_client
             string validUsername = "TA";
             string validPassword = "Cse445!";
 
+            //check db
+            var res = Backend.ValidateLogin(MembersLogin.UserName, MembersLogin.Password);
+
             // Check if the entered credentials match the hardcoded ones
-            if (MembersLogin.UserName == validUsername && MembersLogin.Password == validPassword)
+            if (res.Success)
             {
                 // Set authentication successful
                 e.Authenticated = true;
@@ -39,6 +43,7 @@ namespace web_client
             {
                 // If not, authentication fails
                 e.Authenticated = false;
+                MembersLogin.FailureText = res.ErrorMsg;
             }
         }
 
