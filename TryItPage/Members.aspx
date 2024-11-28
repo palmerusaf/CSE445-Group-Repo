@@ -66,12 +66,8 @@
       <div
         class="col-span-3 col-start-2 row-span-4 row-start-3 bg-gray-200 rounded-md shadow-lg"
       >
-        <div class="py-4 w-full text-xl font-bold text-center">Chart</div>
-        <div class="flex justify-center items-center w-full">
-          <img
-            src="https://www.jaspersoft.com/content/dam/jaspersoft/images/graphics/infographics/line-chart-example.svg"
-            alt=""
-          />
+        <div class="py-4 w-full text-xl font-bold text-center">Chart</div> <div class="px-4 pt-2 w-full"> 
+            <asp:Literal ID="Chart" Mode="PassThrough" runat="server"  />
         </div>
       </div>
       <div

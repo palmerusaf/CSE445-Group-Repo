@@ -50,6 +50,17 @@ namespace web_client
         }
         private void UpdateChart(string symbol)
         {
+
+            // establish service connection
+            ChartService.ChartsClient service = new ChartService.ChartsClient();
+            //parse out input
+            // TODO: call api to get real data
+            var dataLabels = new string[] { "Label1", "Label2" };
+            var dataValues = new string[] { "10", "15" };
+            var label = "Annual Price Chart for " + symbol;
+            //call service and embed html string
+            Chart.Text = service.Chart(label, dataLabels, dataValues);
+            service.Close();
         }
         protected void RemoveClick(object sender, EventArgs e)
         {

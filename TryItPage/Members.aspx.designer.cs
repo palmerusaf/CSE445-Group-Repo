@@ -33,6 +33,15 @@ namespace web_client
         protected global::System.Web.UI.WebControls.Repeater NewsLinks;
 
         /// <summary>
+        /// Chart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Chart;
+
+        /// <summary>
         /// CurrentPrice control.
         /// </summary>
         /// <remarks>
