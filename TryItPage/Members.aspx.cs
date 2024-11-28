@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using web_client.CurrenyExchangeRate;
 using MockBackendNameSpace;
+using web_client.StockQuoteService;
 
 namespace web_client
 {
@@ -13,7 +14,7 @@ namespace web_client
     {
         private string username;
         // use mock data to save on api calls during testing
-        private readonly bool MOCK_DATA = true;
+        private readonly bool MOCK_DATA = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack)
@@ -46,16 +47,26 @@ namespace web_client
         }
         private bool UpdateCurrentPrice(string symbol)
         {
+            string price = "1337";
             if (MOCK_DATA)
             {
-                bool res = true;
-                string price = "1337";
-                if (res)
-                {
-                    CurrentPrice.Text = "$" + price.ToString();
-                }
-                return res;
+                CurrentPrice.Text = "$" + price.ToString();
+                return true;
             }
+            // establish service connection
+            StockQuoteService.StockQuoteClient service = new StockQuoteClient();
+            // consume the service
+            price = service.Stockquote(symbol);
+            // if symbol doesn't exit return false for failed
+            if (price==null)
+            {
+                return false;
+            }
+            //update our output box
+            CurrentPrice.Text = "$"+price;
+            //close the connection
+            service.Close();
+            return true;
         }
         private void UpdateChart(string symbol)
         {
