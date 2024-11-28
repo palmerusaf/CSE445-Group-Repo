@@ -21,9 +21,9 @@
         QuoteWatch
       </div>
       <ul class="flex flex-col gap-2 md:flex-row">
-        <li class="underline"><a href="default.html">Home</a></li>
-        <li class="underline"><a href="SignUp.html">Sign Up</a></li>
-        <li class="underline"><a href="Login.html">Login</a></li>
+        <li class="underline"><a href="default.aspx">Home</a></li>
+        <li class="underline"><a href="SignUp.aspx">Sign Up</a></li>
+        <li class="underline"><a href="Login.aspx">Login</a></li>
         <li class="text-lg font-bold">Members</li>
         <li class="underline"><a href="">Staff</a></li>
       </ul>
