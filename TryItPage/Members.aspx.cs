@@ -33,6 +33,10 @@ namespace web_client
 
         private void UpdateNewsLinks(string symbol)
         {
+            // TODO: plug in news api
+            List<string> dataList = new List<string> { "google.com", "facebook.com" };
+            NewsLinks.DataSource = dataList;
+            NewsLinks.DataBind();
         }
         private bool UpdateCurrentPrice(string symbol)
         {

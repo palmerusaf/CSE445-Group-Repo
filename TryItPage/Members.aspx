@@ -55,12 +55,12 @@
       >
         <div class="py-4 w-full text-xl font-bold text-center">News Links</div>
         <div class="overflow-hidden flex-col px-4 text-nowrap text-ellipsis">
-          <a class="underline" href=""
-            >https://edition.cnn.com/2024/11/27/asia/johnny-somali-prison-south-korea-hnk/index.html<br
-          /></a>
-          <a class="underline" href=""
-            >https://edition.cnn.com/2024/11/27/asia/johnny-somali-prison-south-korea-hnk/index.html<br
-          /></a>
+            <asp:Repeater runat="server" ID="NewsLinks">
+                <ItemTemplate>
+                  <a class="underline" target="_blank" href='<%# Container.DataItem %>'
+                    ><%# Container.DataItem %><br /></a>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
       </div>
       <div
