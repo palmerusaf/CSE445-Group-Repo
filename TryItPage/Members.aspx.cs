@@ -112,8 +112,8 @@ namespace web_client
                 // establish service connection
                 ChartService.ChartsClient chartServ = new ChartService.ChartsClient();
                 //parse out input
-                string[] dataLabels=new string[] {};
-                string[] dataValues=new string[] {};
+                string labelsCommaString = "";
+                string pricesCommaString = "";
 
             // establish service connection
             StockQuoteService.StockQuoteClient stockServ = new StockQuoteClient();
@@ -123,15 +123,21 @@ namespace web_client
                 // consume the service
                 var report = stockServ.AnnualStockReport(symbol);
 
-                    //convert to list to bind to frontend
-                    var label = $"Annual Percent Return: {report.annualReturn}%";
+                //convert to list to bind to frontend
+                var label = $"Annual Percent Return: {report.annualReturn}%";
                 foreach (var month in report.monthlyClosings)
                 {
-                        dataLabels.Append(month.name.ToString());
-                        dataValues.Append(month.price.ToString());
+                        labelsCommaString += $"{month.name},";
+                        pricesCommaString += $"{month.price},";
                 }
-                //call service and embed html string
-                Chart.Text = chartServ.Chart(label, dataLabels, dataValues);
+                    labelsCommaString=labelsCommaString.TrimEnd(',');
+                    pricesCommaString=pricesCommaString.TrimEnd(',');
+                    string[] labels = labelsCommaString.Split(',');
+                    string[] prices = pricesCommaString.Split(',');
+                    Array.Reverse(labels);
+                    Array.Reverse(prices);
+                    //call service and embed html string
+                    Chart.Text = chartServ.Chart(label, labels, prices);
             }
             catch (Exception ex)
             {
