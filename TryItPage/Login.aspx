@@ -69,18 +69,20 @@
                 ID="PasswordRequired"
                 runat="server"
                 ControlToValidate="Password"
+                  CssClass="text-red-500"
                 ErrorMessage="Password is required."
                 ToolTip="Password is required."
                 ValidationGroup="login"
-                >*</asp:RequiredFieldValidator
+                ></asp:RequiredFieldValidator
               >
             </div>
             <div class="flex justify-center h-6">
-              <asp:Literal
+              <asp:Label
+                class="max-w-sm font-semibold text-center text-red-500"
                 ID="FailureText"
                 runat="server"
-                EnableViewState="False"
-              ></asp:Literal>
+              Text=""
+              ></asp:Label>
             </div>
             <asp:Button
               class="py-2 w-full font-bold text-white bg-blue-500 rounded-full duration-300 hover:scale-105"

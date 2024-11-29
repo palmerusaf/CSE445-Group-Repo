@@ -20,6 +20,13 @@ namespace web_client
 
         protected void Members_Authenticate(object sender, AuthenticateEventArgs e)
         {
+            string userName = MembersLogin.UserName.Trim();
+            string password = MembersLogin.Password.Trim();
+            if (userName == string.Empty || password == string.Empty) { 
+                MembersLogin.FailureText = "Fields can't be Empty!";
+                return;
+            }
+            MembersLogin.FailureText = "";
 
             //check db
             var res = Backend.CreateUser(MembersLogin.UserName, MembersLogin.Password);
