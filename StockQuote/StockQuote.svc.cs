@@ -70,9 +70,7 @@ namespace StockQuote
             //if we didn't find the symbol then our parse will throw a null exception
             catch (Exception ex)
             {
-                // just rethrow during dev because it's probably a problem with my code
-                //throw ex;
-                throw new Exception($"Sorry we couldn't find symbol: {symbol}.");
+                throw ex;
             }
         }
 

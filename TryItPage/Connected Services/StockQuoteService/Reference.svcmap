@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="3c9a8e05-9bb6-438a-9293-bcdc39a89b98" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="7e180ec6-84e5-4487-874e-273932f2a695" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:65463/StockQuote.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://webstrar26.fulton.asu.edu/page4/StockQuote.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="StockQuote2.xsd" MetadataType="Schema" ID="8be2f528-b07c-4af5-a35d-8c4009439cb1" SourceId="1" SourceUrl="http://localhost:65463/StockQuote.svc?xsd=xsd2" />
-    <MetadataFile FileName="StockQuote.wsdl" MetadataType="Wsdl" ID="5b4e7978-ca88-4df8-b12f-9b8c1f4e3188" SourceId="1" SourceUrl="http://localhost:65463/StockQuote.svc?wsdl" />
-    <MetadataFile FileName="StockQuote.xsd" MetadataType="Schema" ID="1f3faf03-f48f-46e9-9a5e-1f9589501a2b" SourceId="1" SourceUrl="http://localhost:65463/StockQuote.svc?xsd=xsd1" />
-    <MetadataFile FileName="StockQuote.disco" MetadataType="Disco" ID="6c60089e-d78f-4287-a727-a29a1614a4c1" SourceId="1" SourceUrl="http://localhost:65463/StockQuote.svc?disco" />
-    <MetadataFile FileName="StockQuote1.xsd" MetadataType="Schema" ID="e79f766f-7348-442a-97be-e8cfbeff69c6" SourceId="1" SourceUrl="http://localhost:65463/StockQuote.svc?xsd=xsd0" />
+    <MetadataFile FileName="StockQuote.xsd" MetadataType="Schema" ID="6711c9fb-c47c-4dd0-ad8f-43c570ec99bf" SourceId="1" SourceUrl="http://webstrar26.fulton.asu.edu/Page4/StockQuote.svc?xsd=xsd1" />
+    <MetadataFile FileName="StockQuote1.xsd" MetadataType="Schema" ID="e3c740f7-ef2a-4b72-a4ba-fd60f1bee8cb" SourceId="1" SourceUrl="http://webstrar26.fulton.asu.edu/Page4/StockQuote.svc?xsd=xsd2" />
+    <MetadataFile FileName="StockQuote2.xsd" MetadataType="Schema" ID="695c2584-8aef-4b4f-a026-ac594fc152af" SourceId="1" SourceUrl="http://webstrar26.fulton.asu.edu/Page4/StockQuote.svc?xsd=xsd0" />
+    <MetadataFile FileName="StockQuote.wsdl" MetadataType="Wsdl" ID="96122a05-2552-4df7-9083-b4e01fc95d1a" SourceId="1" SourceUrl="http://webstrar26.fulton.asu.edu/page4/StockQuote.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
