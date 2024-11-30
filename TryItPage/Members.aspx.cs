@@ -150,8 +150,14 @@ namespace web_client
         }
         protected void RemoveClick(object sender, EventArgs e)
         {
-            string username = Request.Cookies["login"]["Username"];
             var symbol = InputBox.Text;
+            if (symbol == string.Empty)
+            {
+                InputBox.Text = "Field Empty";
+                return;
+            }
+            string username = Request.Cookies["login"]["Username"];
+            symbol = symbol.ToUpper();
             var res= Backend.RemoveSymbol(username, symbol);
             if (!res.Success)
             {
@@ -163,8 +169,14 @@ namespace web_client
 
         protected void AddClick(object sender, EventArgs e)
         {
-            string username = Request.Cookies["login"]["Username"];
             var symbol = InputBox.Text;
+            if (symbol == string.Empty)
+            {
+                InputBox.Text = "Field Empty";
+                return;
+            }
+            string username = Request.Cookies["login"]["Username"];
+            symbol = symbol.ToUpper();
             var res=Backend.AddSymbol(username, symbol);
             if (!res.Success)
             {
@@ -182,6 +194,7 @@ namespace web_client
                 InputBox.Text = "Field Empty";
                 return;
             }
+            symbol = symbol.ToUpper();
             var success = UpdateCurrentPrice(symbol);
             if (!success)
             {
