@@ -118,7 +118,8 @@ namespace BackendNameSpace
             XElement newUser = new XElement("User",
             new XElement("Username", username),
             new XElement("PasswordHash", NewHash),
-            new XElement("Salt", salt)
+            new XElement("Salt", salt),
+            new XElement("WatchList")
             );
 
             xml.Add(newUser);
