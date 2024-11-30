@@ -30,6 +30,11 @@ namespace BackendNameSpace
         {
             XElement userData = FindUser(username);
             var WatchListXml = userData.Elements("WatchList");
+            // handle case for empty list
+            if (WatchListXml == null)
+            {
+                return new List<string> { };
+            }
             List<string> res = WatchListXml.Descendants("item").Select(el => el.Value).ToList();
             return res;
         }
