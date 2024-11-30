@@ -26,6 +26,13 @@ namespace BackendNameSpace
             XElement xml = LoadXml();
             return xml.Elements("User").FirstOrDefault(u => u.Element("Username").Value == username);
         }
+        public static List<string> GetWatchList(string username)
+        {
+            XElement userData = FindUser(username);
+            var WatchListXml = userData.Elements("WatchList");
+            List<string> res = WatchListXml.Descendants("item").Select(el => el.Value).ToList();
+            return res;
+        }
     }
 
     public class SimpleResponse
@@ -122,7 +129,7 @@ namespace BackendNameSpace
             // assume the username exists because watch list functions get called at the member page
             ContentResponse res = new ContentResponse();
             res.Success = true;
-            res.Content =new List<string>{ "lmt","ibm"};
+            res.Content = XmlHelper.GetWatchList(username);
             // res.Success = false;
             // res.ErrorMsg=""
             return res;
