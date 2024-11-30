@@ -11,7 +11,7 @@ namespace BackendNameSpace
 
     public static class XmlHelper
     {
-        private static readonly string XmlFilePath = HttpContext.Current.Server.MapPath("~\\TryItPage\\Users.xml");
+        private static readonly string XmlFilePath = HttpContext.Current.Server.MapPath("~\\Users.xml");
 
         public static XElement LoadXml()
         {
@@ -28,26 +28,27 @@ namespace BackendNameSpace
         }
     }
 
-
-
-
-
     public class SimpleResponse
     {
         public bool Success;
         public string ErrorMsg;
     }
+
     public class ContentResponse
     {
         public bool Success;
         public string ErrorMsg;
         public List<string> Content;
     }
+
     public class Backend
     {
-        private IPasswordHasher client;
-        public SimpleResponse ValidateLogin(string username, string password)
+        public static SimpleResponse ValidateLogin(string username, string password)
         {
+            IPasswordHasher client;
+            var factory = new ChannelFactory<IPasswordHasher>("BasicHttpBinding_IPasswordHasher");
+            client = factory.CreateChannel();
+
             SimpleResponse res = new SimpleResponse();
             XElement user = XmlHelper.FindUser(username);
 
@@ -60,11 +61,6 @@ namespace BackendNameSpace
 
             string storedHash = user.Element("PasswordHash").Value;
             string salt = user.Element("Salt").Value;
-            if (client == null)
-            {
-                var factory = new ChannelFactory<IPasswordHasher>("BasicHttpBinding_IPasswordHasher");
-                client = factory.CreateChannel();
-            }
             // hash password bump with db
             bool isValid = client.VerifyPassword(password, storedHash, salt);
             if (isValid)
@@ -86,11 +82,12 @@ namespace BackendNameSpace
             //return res;
         }
 
-        public SimpleResponse CreateUser(string username, string password)
+        public static SimpleResponse CreateUser(string username, string password)
         {
             // lets require usernames be unique so we can also use them as username ids
             // this means we'll have to bump the db to make sure this is true
             SimpleResponse res = new SimpleResponse();
+            IPasswordHasher client;
             XElement xml = XmlHelper.LoadXml();
 
             if (XmlHelper.FindUser(username) != null)
@@ -100,33 +97,22 @@ namespace BackendNameSpace
                 return res;
             }
 
-            if (client == null)
-            {
-                var factory = new ChannelFactory<IPasswordHasher>("BasicHttpBinding_IPasswordHasher");
-                client = factory.CreateChannel();
-                string salt = client.GenerateSalt();
-                string NewHash = client.HashPassword(password, salt);
+            var factory = new ChannelFactory<IPasswordHasher>("BasicHttpBinding_IPasswordHasher");
+            client = factory.CreateChannel();
+            string salt = client.GenerateSalt();
+            string NewHash = client.HashPassword(password, salt);
 
 
-                XElement newUser = new XElement("User",
-                new XElement("Username", username),
-                new XElement("PasswordHash", NewHash),
-                new XElement("Salt", salt)
-                );
+            XElement newUser = new XElement("User",
+            new XElement("Username", username),
+            new XElement("PasswordHash", NewHash),
+            new XElement("Salt", salt)
+            );
 
-                xml.Add(newUser);
-                XmlHelper.SaveXml(xml);
-
-                res.Success = true;
-                return res;
-
-
-            }
-
+            xml.Add(newUser);
+            XmlHelper.SaveXml(xml);
 
             res.Success = true;
-            // res.Success = false;
-            // res.ErrorMsg="duplicate user"
             return res;
         }
 
@@ -163,4 +149,5 @@ namespace BackendNameSpace
         }
 
     }
+
 }
