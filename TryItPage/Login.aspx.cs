@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MockBackendNameSpace;
+using BackendNameSpace;
 
 namespace web_client
 {
@@ -25,7 +25,15 @@ namespace web_client
             string validPassword = "Cse445!";
 
             //check db
-            var res = Backend.ValidateLogin(MembersLogin.UserName, MembersLogin.Password);
+            string userName = MembersLogin.UserName.Trim();
+            string password = MembersLogin.Password.Trim();
+            if (userName == string.Empty || password == string.Empty) { 
+                MembersLogin.FailureText = "Fields can't be Empty!";
+                return;
+            }
+            MembersLogin.FailureText = "";
+
+            var res = Backend.ValidateLogin(userName, password);
 
             // Check if the entered credentials match the hardcoded ones
             if (res.Success)
@@ -35,7 +43,7 @@ namespace web_client
 
                 // store the user name
                 HttpCookie loginCookie = new HttpCookie("login");
-                loginCookie["Username"] = MembersLogin.UserName;
+                loginCookie["Username"] = userName;
                 loginCookie.Expires = DateTime.Now.AddMonths(6);
                 Response.Cookies.Add(loginCookie);
             }

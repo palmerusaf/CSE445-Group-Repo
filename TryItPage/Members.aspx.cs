@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using web_client.CurrenyExchangeRate;
-using MockBackendNameSpace;
+using BackendNameSpace;
 using web_client.StockQuoteService;
 using System.Xml.Linq;
 using System.Net.Http;
@@ -14,7 +14,6 @@ namespace web_client
 {
     public partial class Members : System.Web.UI.Page
     {
-        private string username;
         // use mock data to save on api calls during testing
         private readonly bool MOCK_DATA = false;
         protected void Page_Load(object sender, EventArgs e)
@@ -23,15 +22,13 @@ namespace web_client
             {
                 return;
             }
-            // get cookies for username
-            HttpCookie loginCookie = Request.Cookies["login"];
-            username = loginCookie["Username"];
             // get the watch list and bind it to the ui
             UpdateWatchList();
         }
 
         private void UpdateWatchList()
         {
+            string username = Request.Cookies["login"]["Username"];
             var watchListData = Backend.GetWatchList(username);
             WatchList.DataSource = watchListData.Content;
             WatchList.DataBind();
@@ -112,8 +109,8 @@ namespace web_client
                 // establish service connection
                 ChartService.ChartsClient chartServ = new ChartService.ChartsClient();
                 //parse out input
-                string[] dataLabels=new string[] {};
-                string[] dataValues=new string[] {};
+                string labelsCommaString = "";
+                string pricesCommaString = "";
 
             // establish service connection
             StockQuoteService.StockQuoteClient stockServ = new StockQuoteClient();
@@ -123,15 +120,21 @@ namespace web_client
                 // consume the service
                 var report = stockServ.AnnualStockReport(symbol);
 
-                    //convert to list to bind to frontend
-                    var label = $"Annual Percent Return: {report.annualReturn}%";
+                //convert to list to bind to frontend
+                var label = $"Annual Percent Return: {report.annualReturn}%";
                 foreach (var month in report.monthlyClosings)
                 {
-                        dataLabels.Append(month.name.ToString());
-                        dataValues.Append(month.price.ToString());
+                        labelsCommaString += $"{month.name},";
+                        pricesCommaString += $"{month.price},";
                 }
-                //call service and embed html string
-                Chart.Text = chartServ.Chart(label, dataLabels, dataValues);
+                    labelsCommaString=labelsCommaString.TrimEnd(',');
+                    pricesCommaString=pricesCommaString.TrimEnd(',');
+                    string[] labels = labelsCommaString.Split(',');
+                    string[] prices = pricesCommaString.Split(',');
+                    Array.Reverse(labels);
+                    Array.Reverse(prices);
+                    //call service and embed html string
+                    Chart.Text = chartServ.Chart(label, labels, prices);
             }
             catch (Exception ex)
             {
@@ -148,7 +151,14 @@ namespace web_client
         protected void RemoveClick(object sender, EventArgs e)
         {
             var symbol = InputBox.Text;
-            var res=Backend.RemoveSymbol(username, symbol);
+            if (symbol == string.Empty)
+            {
+                InputBox.Text = "Field Empty";
+                return;
+            }
+            string username = Request.Cookies["login"]["Username"];
+            symbol = symbol.ToUpper();
+            var res= Backend.RemoveSymbol(username, symbol);
             if (!res.Success)
             {
                 InputBox.Text = res.ErrorMsg;
@@ -160,6 +170,13 @@ namespace web_client
         protected void AddClick(object sender, EventArgs e)
         {
             var symbol = InputBox.Text;
+            if (symbol == string.Empty)
+            {
+                InputBox.Text = "Field Empty";
+                return;
+            }
+            string username = Request.Cookies["login"]["Username"];
+            symbol = symbol.ToUpper();
             var res=Backend.AddSymbol(username, symbol);
             if (!res.Success)
             {
@@ -177,6 +194,7 @@ namespace web_client
                 InputBox.Text = "Field Empty";
                 return;
             }
+            symbol = symbol.ToUpper();
             var success = UpdateCurrentPrice(symbol);
             if (!success)
             {

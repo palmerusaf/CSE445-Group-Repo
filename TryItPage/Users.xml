@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Users>
+  <User>
+    <Username>john_doe</Username>
+    <PasswordHash>hashed_password_here</PasswordHash>
+    <Salt>salt_here</Salt>
+  </User>
+  <User>
+    <Username>TA</Username>
+    <PasswordHash>QEanns8mB+svjgJENXIbLBizbmECR3iLVvA9Q/xAkJA=</PasswordHash>
+    <Salt>aFKokEFpnlZcQQ4JW0Mrnw==</Salt>
+    <WatchList>
+      <item>BRK-A</item>
+      <item>IBM</item>
+      <item>TSLA</item>
+    </WatchList>
+  </User>
+</Users>

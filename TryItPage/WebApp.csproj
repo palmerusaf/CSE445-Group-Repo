@@ -70,6 +70,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Staff.xml" />
+    <None Include="Connected Services\StockQuoteService\configuration91.svcinfo" />
+    <None Include="Connected Services\StockQuoteService\configuration.svcinfo" />
+    <None Include="Connected Services\StockQuoteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="default.aspx" />
     <Content Include="SignUp.aspx" />
     <None Include="Connected Services\ChartService\Charts.xsd">
@@ -95,13 +102,6 @@
     </None>
     <None Include="Connected Services\PasswordHasher\PasswordHasher1.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\StockQuoteService\StockQuote.disco" />
-    <None Include="Connected Services\StockQuoteService\configuration91.svcinfo" />
-    <None Include="Connected Services\StockQuoteService\configuration.svcinfo" />
-    <None Include="Connected Services\StockQuoteService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Connected Services\ChartService\Charts.disco" />
     <None Include="Connected Services\ChartService\configuration91.svcinfo" />
@@ -129,10 +129,16 @@
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="Members.aspx" />
+    <Content Include="Users.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backend.cs" />
+    <Compile Include="Connected Services\StockQuoteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="MockBackend.cs" />
     <Compile Include="Connected Services\ChartService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -145,11 +151,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\PasswordHasher\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\StockQuoteService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
