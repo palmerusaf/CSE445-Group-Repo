@@ -156,11 +156,19 @@ namespace BackendNameSpace
 
         public static SimpleResponse RemoveSymbol(string username,string symbol)
         {
-            // assume its in list, the plan is to call this with a button per list symbol not text box
+            // assume the username exists because watch list functions get called at the member page
             SimpleResponse res = new SimpleResponse();
             res.Success = true;
-            // res.Success = false;
-            // res.ErrorMsg=""
+            var list = XmlHelper.GetWatchList(username);
+            if (!list.Exists(el => el.Equals(symbol)))
+            {
+                res.Success = false;
+                res.ErrorMsg = "Not in List";
+                return res;
+            }
+            XElement xml = XmlHelper.LoadXml();
+            xml.Elements("User").FirstOrDefault(u => u.Element("Username").Value == username).Element("WatchList").Elements("item").FirstOrDefault(el => el.Value == symbol).Remove();
+            XmlHelper.SaveXml(xml);
             return res;
         }
 
