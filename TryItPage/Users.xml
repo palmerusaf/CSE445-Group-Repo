@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Users>
+	<User>
+		<Username>john_doe</Username>
+		<PasswordHash>hashed_password_here</PasswordHash>
+		<Salt>salt_here</Salt>
+	</User>
+</Users>
