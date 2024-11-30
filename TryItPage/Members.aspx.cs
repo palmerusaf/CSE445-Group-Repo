@@ -14,7 +14,6 @@ namespace web_client
 {
     public partial class Members : System.Web.UI.Page
     {
-        private string username;
         // use mock data to save on api calls during testing
         private readonly bool MOCK_DATA = false;
         protected void Page_Load(object sender, EventArgs e)
@@ -23,15 +22,13 @@ namespace web_client
             {
                 return;
             }
-            // get cookies for username
-            HttpCookie loginCookie = Request.Cookies["login"];
-            username = loginCookie["Username"];
             // get the watch list and bind it to the ui
             UpdateWatchList();
         }
 
         private void UpdateWatchList()
         {
+            string username = Request.Cookies["login"]["Username"];
             var watchListData = Backend.GetWatchList(username);
             WatchList.DataSource = watchListData.Content;
             WatchList.DataBind();
@@ -153,8 +150,9 @@ namespace web_client
         }
         protected void RemoveClick(object sender, EventArgs e)
         {
+            string username = Request.Cookies["login"]["Username"];
             var symbol = InputBox.Text;
-            var res=Backend.RemoveSymbol(username, symbol);
+            var res= Backend.RemoveSymbol(username, symbol);
             if (!res.Success)
             {
                 InputBox.Text = res.ErrorMsg;
@@ -165,6 +163,7 @@ namespace web_client
 
         protected void AddClick(object sender, EventArgs e)
         {
+            string username = Request.Cookies["login"]["Username"];
             var symbol = InputBox.Text;
             var res=Backend.AddSymbol(username, symbol);
             if (!res.Success)
