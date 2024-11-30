@@ -30,11 +30,6 @@ namespace BackendNameSpace
         {
             XElement userData = FindUser(username);
             var WatchListXml = userData.Elements("WatchList");
-            // handle case for empty list
-            if (WatchListXml == null)
-            {
-                return new List<string> { };
-            }
             List<string> res = WatchListXml.Descendants("item").Select(el => el.Value).ToList();
             return res;
         }
@@ -146,8 +141,16 @@ namespace BackendNameSpace
             // assume the username exists because watch list functions get called at the member page
             SimpleResponse res = new SimpleResponse();
             res.Success = true;
-            // res.Success = false;
-            // res.ErrorMsg="already in list"
+            var list = XmlHelper.GetWatchList(username);
+            if (list.Exists(el => el.Equals(symbol)))
+            {
+                res.Success = false;
+                res.ErrorMsg = "Already in List";
+                return res;
+            }
+            XElement xml = XmlHelper.LoadXml();
+            xml.Elements("User").FirstOrDefault(u => u.Element("Username").Value == username).Element("WatchList").Add(new XElement("item", symbol));
+            XmlHelper.SaveXml(xml);
             return res;
         }
 
