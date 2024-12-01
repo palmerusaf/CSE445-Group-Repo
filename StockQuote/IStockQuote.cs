@@ -21,7 +21,7 @@ namespace StockQuote
           * @return opening price
           */
         [OperationContract]
-        Task<string> Stockquote(string symbol);
+        string Stockquote(string symbol);
         [OperationContract]
         AnnualStockData AnnualStockReport(string symbol);
     }

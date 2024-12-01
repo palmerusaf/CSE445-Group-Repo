@@ -18,14 +18,17 @@ namespace StockQuote
         public AnnualStockData AnnualStockReport(string symbol)
         {
             // Uppercase the symbol
-            symbol = symbol.ToUpper();
+            symbol = symbol.ToUpper().Trim();
+            var localApiKey = apiKey;
 
             //test parameters so i don't burn through tokens during dev
-            //var apiKey = "demo";
-            //symbol = "IBM";
+            if (symbol == "IBM")
+            {
+                localApiKey = "demo";
+            }
 
             // sanitize the url
-            UriBuilder ub = new UriBuilder($"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol={symbol}&apikey={apiKey}");
+            UriBuilder ub = new UriBuilder($"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol={symbol}&apikey={localApiKey}");
 
             //establish connection
             HttpClient client = new HttpClient();
@@ -43,10 +46,11 @@ namespace StockQuote
                 monthlyClosings = new List<MonthlyClose>()
             };
 
+            string jsonRaw = "";
             // parse and serialize
             try
             {
-                var jsonRaw = res.Content.ReadAsStringAsync().Result;
+                jsonRaw = res.Content.ReadAsStringAsync().Result;
                 var data = JObject.Parse(jsonRaw);
                 var monthsRaw = data["Monthly Time Series"];
                 //extract data from just the first 12 month objects
@@ -70,19 +74,31 @@ namespace StockQuote
             //if we didn't find the symbol then our parse will throw a null exception
             catch (Exception ex)
             {
+                if (jsonRaw.Contains("Information"))
+                {
+                    throw new Exception("Daily Limit Reached Try Symbol IBM for demo");
+                }
                 throw ex;
             }
         }
 
-        public async Task<string> Stockquote(string symbol)
+        public string  Stockquote(string symbol)
         {
             // Uppercase the symbol
-            symbol = symbol.ToUpper();
+            symbol = symbol.ToUpper().Trim();
+            var localApiKey = apiKey;
+
+            //test parameters so i don't burn through tokens during dev
+            if (symbol == "IBM")
+            {
+                localApiKey = "demo";
+            }
+
             // sanitize the url
-            UriBuilder ub = new UriBuilder($"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={apiKey}");
+            UriBuilder ub = new UriBuilder($"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={localApiKey}");
             //establish connection
             HttpClient client = new HttpClient();
-            var res = await client.GetAsync(ub.Uri);
+            var res =  client.GetAsync(ub.Uri).Result;
             // alert the api consumer that connection wasn't ok
             if (!res.IsSuccessStatusCode)
             {
@@ -90,14 +106,20 @@ namespace StockQuote
             }
 
             // parse out the opening price
-            var jsonRaw = await res.Content.ReadAsStringAsync();
+            var jsonRaw = res.Content.ReadAsStringAsync().Result;
             Console.WriteLine(jsonRaw.ToString());
             var data = JsonConvert.DeserializeObject<StockData>(jsonRaw).data;
+
             //if we didn't find the symbol then our parse will return null
             if (data == null)
             {
+                if (jsonRaw.Contains("Information"))
+                {
+                    return "Daily Limit Reached Try Symbol IBM for demo";
+                }
                 return $"Sorry we couldn't find symbol: {symbol}.";
             }
+
             //return opening price
             return data.price;
         }
